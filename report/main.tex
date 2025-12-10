@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+
+% ===============================
+% Packages
+% ===============================
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{econ695_style}
+
+% Graphics path
+\graphicspath{{figures/}}
+
+% Line spacing
+\onehalfspacing
+
+% Hyperlink styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% ===============================
+% Title
+% ===============================
+\title{ECON 695 Final Project \\[4pt]
+\large University of Wisconsin–Madison}
+\author{
+Alejandro De La Torre \\
+Vibhu Mithal \\
+Ankit Modi \\
+Rachel Williams
+}
+\date{December 2025}
+
+% ===============================
+% Document
+% ===============================
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+% ===============================
+% Abstract
+% ===============================
+\input{sections/abstract}
+\clearpage
+
+% ===============================
+% Introduction
+% ===============================
+\input{sections/intro}
+
+% ===============================
+% Section 1
+% ===============================
+\section{Section 1}
+\input{sections/section_1}
+
+% ===============================
+% Section 2
+% ===============================
+\section{Section 2}
+\input{sections/section_2}
+
+% ===============================
+% Section 3
+% ===============================
+\section{Section 3}
+\input{sections/section_3}
+
+% ===============================
+% Section 4
+% ===============================
+\section{Section 4}
+\input{sections/section_4}
+
+% ===============================
+% Section 5 (Bonus)
+% ===============================
+\section{Section 5 (Bonus)}
+\input{sections/section_5_bonus}
+
+% ===============================
+% Bibliography
+% ===============================
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}
