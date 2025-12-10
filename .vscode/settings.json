@@ -1,0 +1,11 @@
+{
+  "python.defaultInterpreterPath": "/opt/anaconda3/envs/econ695/bin/python",
+  "jupyter.jupyterServerType": "local",
+
+  "[latex]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
+    "editor.rulers": [80],
+    "editor.wrappingIndent": "same"
+  }
+}
