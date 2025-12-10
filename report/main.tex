@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[12pt,twoside]{report}
 
 % ===============================
 % Packages
@@ -61,7 +61,7 @@ Rachel Williams
 % ===============================
 % AI Disclaimer
 % ===============================
-\section{AI Disclaimer}
+\section*{AI Disclaimer}
 
 AI tools (specifically ChatGPT) were used solely to assist with minor troubleshooting and formatting tasks, including resolving LaTeX and Python issues, reorganizing sections for clarity (such as indentation conventions and structural organization in \texttt{project\_code.ipynb}), and drafting descriptive tables for improved readability. All analysis, model specifications, interpretations, and the final written narrative are entirely my own.
 
@@ -70,16 +70,15 @@ AI tools (specifically ChatGPT) were used solely to assist with minor troublesho
 % ===============================
 \input{sections/intro}
 
+
 % ===============================
 % Section 1
 % ===============================
-\section{Section 1: Overview: Female vs. Male Workers}
 \input{sections/section_1}
 
 % ===============================
 % Section 2
 % ===============================
-\section{Section 2: Gender Wage Gaps}
 \input{sections/section_2}
 
 
@@ -87,25 +86,34 @@ AI tools (specifically ChatGPT) were used solely to assist with minor troublesho
 % ===============================
 % Section 3
 % ===============================
-\section{Section 3: Gender Wage Gaps Conditional on Coworker Wages}
 \input{sections/section_3}
 
 % ===============================
 % Section 4
 % ===============================
-\section{Section 4: Event Study - Wage Changes around Moves}
 \input{sections/section_4}
 
 % ===============================
 % Section 5 (Bonus)
 % ===============================
-\section{Section 5 (Bonus): Shrinkage}
 \input{sections/section_5_bonus}
+
+
+% ===============================
+% Conclusion
+% ===============================
+\input{sections/conclusion}
+
+
+% ===============================
+% Appendix 
+% ===============================
+\input{sections/appendix}
 
 % ===============================
 % Bibliography
 % ===============================
-\bibliographystyle{apalike}
+% \bibliographystyle{plain}
 \bibliography{econ695_final_project}
 
 \end{document}
