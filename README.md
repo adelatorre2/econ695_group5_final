@@ -1,4 +1,3 @@
-cat > README.md << 'EOF'
 # ECON 695 Final Project – Group 5
 
 This repository contains the code and report for our ECON 695 final project.
@@ -18,3 +17,10 @@ This repository contains the code and report for our ECON 695 final project.
    referencing figures from `report/figures/`.
 4. Commit and push frequently, using branches for new features/sections.
 EOF
+
+
+### Contact:
+Alejandro De La Torre (adelatorre2@wisc.edu)
+Rachel Williams (rawilliams6@wisc.edu)
+Ankit Modi (akmodi@wisc.edu) 
+Vibhu Mithal (vmithal@wisc.edu) 
