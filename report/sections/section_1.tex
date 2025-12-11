@@ -8,8 +8,11 @@ Female and male workers in our sample differ systematically in both pay and obse
 
 \begin{table}[H]
 \centering
+\begin{threeparttable}
 \caption{Summary Statistics by Gender}
 \label{tab:summary_by_gender}
+\small
+\renewcommand{\arraystretch}{0.9}
 \begin{tabular}{lcccc}
 \toprule
  & All & Female & Male & $t$--stat \\\midrule
@@ -21,8 +24,14 @@ Educ = 9 yrs (fraction) & 0.2274 & 0.1949 & 0.2471 & -8.0450 \\
 Educ = 12 yrs (fraction) & 0.2958 & 0.3286 & 0.2759 & 7.2054 \\
 Educ = 16 yrs (fraction) & 0.2027 & 0.2279 & 0.1875 & 6.2317 \\\bottomrule
 \end{tabular}
+\begin{tablenotes}[para,flushleft]
+\footnotesize
+\textit{Notes:} Each column reports sample means for the listed variables across all workers, and separately by gender. Education is coded as categorical dummies for 6, 9, 12, and 16 years of schooling. The final column reports $t$--statistics from independent two-sample tests comparing male and female means. All values are measured at period~0 (first year on the second job).
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 
+\noindent
 Women comprise approximately 38\% of the sample. As shown in Table~\ref{tab:summary_by_gender}, average age is nearly identical across genders, but women tend to have slightly higher educational attainment: they are more likely to have completed 12 or 16 years of schooling, whereas men are more concentrated in the 6- and 9-year categories. These differences in educational composition are large and statistically significant, with $t$--statistics in the range of about 6 to 8 in absolute value.
 
 Despite women’s modest advantage in formal schooling, men earn substantially higher wages at period~0. The mean log hourly wage is 1.866 for men compared to 1.658 for women, corresponding to a large and statistically significant gender gap (the $t$--statistic is about $-20.8$). Coworker wages show a similar pattern: men are more likely to work alongside higher-paid coworkers (mean owage2 of 1.725 for men versus 1.638 for women), suggesting systematic gender differences in the types of jobs or firms where workers are employed.
@@ -53,4 +62,4 @@ Despite women’s modest advantage in formal schooling, men earn substantially h
 
 Figure~\ref{fig:wage_dists} provides additional detail on the distribution of wages by gender. In panel~(a), the kernel density curves indicate that the female wage distribution lies to the left of the male distribution, with women clustering more heavily around log wages of roughly 1.0--1.4. Panel~(b) shows a similar pattern in the histograms: women are more prevalent at lower wage levels, while men are overrepresented in the upper tail, particularly above a log wage of 2.0. The male distribution also exhibits greater spread, consistent with higher dispersion in men’s wage outcomes.
 
-Taken together, Table~\ref{tab:summary_by_gender} and Figure~\ref{fig:wage_dists} document a sizable raw gender wage gap and meaningful differences in educational attainment and coworker wage exposure, even before controlling for other observable characteristics. These descriptive patterns motivate the regression analysis and Oaxaca decompositions in Section~\ref{sec:gender_wage_gaps}.
+Taken together, Table~\ref{tab:summary_by_gender} and Figure~\ref{fig:wage_dists} document a sizable raw gender wage gap and meaningful differences in educational attainment and coworker wage exposure, even before controlling for other observable characteristics. These descriptive patterns motivate the regression analysis and Oaxaca decompositions in \nameref{sec:Section 2: Gender Wage Gaps}.

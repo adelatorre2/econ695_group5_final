@@ -10,9 +10,18 @@
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{hyperref}
+\usepackage{threeparttable} % for tables with notes
+\usepackage{nameref} % for referencing section names
 \usepackage{subcaption, caption, float}  % for subfigures [H] placement
 \usepackage{natbib}         % author–date citations
-\usepackage{econ695_style}  % your custom style (see below)
+
+% Options add "Appendix" heading to ToC and a separate "Appendices" page
+% \usepackage[toc,page]{appendix} 
+
+% Custom style package
+\usepackage{econ695_style}  % to use the .sty file in the project root
+
+\raggedbottom % prevent uneven vertical spacing
 
 % graphics path
 \graphicspath{{figures/}}
@@ -101,7 +110,18 @@ are our own.
 
 % ---------- References ----------
 \clearpage
-\bibliographystyle{chicago}                 % Chicago author–date (BibTeX)
-\bibliography{econ695_final_project}        % econ695_final_project.bib
+\bibliographystyle{chicago}
+\bibliography{references/econ695_final_project}
+%\printbibliography[heading=bibintoc,title={References}]
+% \bibliographystyle{chicago}
+% \bibliography{references/econ695_final_project}
+% OR for BibLaTeX
+% \section*{References}
+% \addcontentsline{toc}{section}{References}
+% \label{sec:References}
+% \printbibliography
+% \bibliographystyle{chicago} % Chicago author–date (BibTeX)
+% \bibliography{references/econ695_final_project} % econ695_final_project.bib
+% \printbibliography % BibLaTeX
 
 \end{document}

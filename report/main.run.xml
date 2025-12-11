@@ -53,7 +53,6 @@
       <file>blx-dm.def</file>
       <file>blx-compat.def</file>
       <file>biblatex.def</file>
-      <file>blx-natbib.def</file>
       <file>standard.bbx</file>
       <file>authoryear.bbx</file>
       <file>authoryear.cbx</file>
@@ -80,7 +79,7 @@
       <file>main.bcf</file>
     </requires>
     <requires type="editable">
-      <file>econ695_final_project.bib</file>
+      <file>references/econ695_final_project.bib</file>
     </requires>
   </external>
 </requests>
