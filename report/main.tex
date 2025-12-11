@@ -1,40 +1,36 @@
 \documentclass[12pt,twoside]{report}
 
-% ===============================
+% =========================
 % Packages
-% ===============================
+% =========================
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{float}
 \usepackage{caption}
-\usepackage{subcaption}
-\usepackage{natbib}
 \usepackage{hyperref}
-\usepackage{url}
-\usepackage{econ695_style}
+\usepackage{natbib}         % author–date citations
+\usepackage{econ695_style}  % your custom style (see below)
 
-% Graphics path
+% graphics path
 \graphicspath{{figures/}}
 
-% Line spacing
+% line spacing
 \onehalfspacing
 
-% Hyperlink styling
+% hyperref setup (tweak colors if you want)
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue,
-    urlcolor=blue
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
 }
 
-% ===============================
-% Title
-% ===============================
-\title{ECON 695 Final Project \\[4pt]
-\large University of Wisconsin–Madison}
+% =========================
+% Title info
+% =========================
+\title{ECON 695 Final Project: Gender Wage Gaps and Coworker Wages}
 \author{
 Alejandro De La Torre \\
 Vibhu Mithal \\
@@ -43,77 +39,67 @@ Rachel Williams
 }
 \date{December 2025}
 
-% ===============================
+% =========================
 % Document
-% ===============================
+% =========================
 \begin{document}
 
-\maketitle
-\thispagestyle{empty}
-\clearpage
+% ---------- Title page ----------
+\begin{titlepage}
+  \thispagestyle{empty}
+  \begin{center}
+    {\Large ECON 695 Final Project}\\[0.5em]
+    {\large University of Wisconsin--Madison}\\[2em]
 
-% ===============================
-% Abstract
-% ===============================
-\input{sections/abstract}
-\clearpage
+    {\LARGE \textbf{Gender Wage Gaps and Coworker Wages}}\\[2em]
 
-% ===============================
-% AI Disclaimer
-% ===============================
+    {\large Alejandro De La Torre \\ Vibhu Mithal \\ Ankit Modi \\ Rachel Williams}\\[1.5em]
+
+    {\large December 2025}\\[2em]
+
+    \href{https://github.com/adelatorre2/econ695_group5_final}{Latest version and replication files}
+  \end{center}
+
+  \vfill
+
+  \noindent\textbf{Acknowledgements.} 
+  We thank Professor Alice Wu for guidance and comments. 
+  All errors are our own.
+
+\end{titlepage}
+
+% ---------- Abstract ----------
+% \input{sections/abstract}  % inside abstract.tex you’ll put the abstract env
+
+% ---------- AI disclaimer (unnumbered, but in ToC) ----------
+\clearpage
 \section*{AI Disclaimer}
+\addcontentsline{toc}{section}{AI Disclaimer}
+AI tools (specifically ChatGPT) were used solely to assist with minor troubleshooting and formatting tasks, including resolving \LaTeX{} and Python issues, and drafting descriptive tables for improved readability. All analysis, model specifications, interpretations, and the final written narrative
+are our own.
 
-AI tools (specifically ChatGPT) were used solely to assist with minor troubleshooting and formatting tasks, including resolving LaTeX and Python issues, reorganizing sections for clarity (such as indentation conventions and structural organization in \texttt{project\_code.ipynb}), and drafting descriptive tables for improved readability. All analysis, model specifications, interpretations, and the final written narrative are entirely my own.
+% ---------- Table of contents ----------
+\clearpage
+\tableofcontents
+\clearpage
 
-% ===============================
-% Introduction
-% ===============================
-\input{sections/intro}
+% ---------- Main text ----------
+\input{sections/intro}          % 1 Introduction
+\input{sections/data}           % 2 Data 
+\input{sections/section_1}      % Overview: Female vs Male Descriptive Stats
+\input{sections/section_2}      % 3 Gender Wage Gaps (regressions, Oaxaca)
+\input{sections/section_3}      % 4 Gender Wage Gaps conditional on coworkers
+\input{sections/section_4}      % 5 Event study
+\input{sections/section_5_bonus}% 6 Bonus: shrinkage (optional)
+\input{sections/conclusion}     % Conclusion
 
+% ---------- Appendix (if you want) ----------
+\appendix
+\input{sections/appendix}       % e.g., robustness, extra tables
 
-% ===============================
-% Section 1
-% ===============================
-\input{sections/section_1}
-
-% ===============================
-% Section 2
-% ===============================
-\input{sections/section_2}
-
-
-
-% ===============================
-% Section 3
-% ===============================
-\input{sections/section_3}
-
-% ===============================
-% Section 4
-% ===============================
-\input{sections/section_4}
-
-% ===============================
-% Section 5 (Bonus)
-% ===============================
-\input{sections/section_5_bonus}
-
-
-% ===============================
-% Conclusion
-% ===============================
-\input{sections/conclusion}
-
-
-% ===============================
-% Appendix 
-% ===============================
-\input{sections/appendix}
-
-% ===============================
-% Bibliography
-% ===============================
-% \bibliographystyle{plain}
-\bibliography{econ695_final_project}
+% ---------- References ----------
+\clearpage
+\bibliographystyle{chicago}                 % Chicago author–date (BibTeX)
+\bibliography{econ695_final_project}        % your .bib filename (no .bib)
 
 \end{document}

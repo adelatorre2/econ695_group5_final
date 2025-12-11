@@ -1,33 +1,23 @@
-\ProvidesPackage{econ695_style}[2025/12/10 ECON 695 project style]
+% econ695_style.sty
+% Custom style for ECON 695 final project
 
-% ---- Basic layout & fonts ----
-\RequirePackage[margin=1in]{geometry}
-\RequirePackage{setspace}
-\onehalfspacing
-\RequirePackage{lmodern} % nicer fonts
-\RequirePackage[T1]{fontenc}
-\RequirePackage[utf8]{inputenc}
+\ProvidesPackage{econ695_style}
 
-% ---- Section formatting (optional, can tweak) ----
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{2}
+% nicer math shortcuts (optional)
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
 
-% ---- Hyperlinks ----
-\RequirePackage[hidelinks]{hyperref}
+% abstract environment for report class
+\newenvironment{abstract}{
+  \begin{center}
+    \bfseries Abstract
+  \end{center}
+  \vspace{-1em}
+  \begin{quotation}
+}{
+  \end{quotation}
+}
 
-% ---- Chicago author–date citations via biblatex ----
-\RequirePackage[backend=biber,
-    style=authoryear,
-    natbib=true,
-    maxcitenames=2,
-    maxbibnames=99
-]{biblatex}
-\addbibresource{econ695_final_project.bib}
-
-% ---- Convenience commands for title page ----
-\newcommand{\PaperTitle}{ECON 695 Final Project}
-\newcommand{\PaperSubtitle}{(Working Title Here)}
-\newcommand{\PaperInstitution}{University of Wisconsin--Madison}
-\newcommand{\PaperAuthors}{Alejandro De La Torre \\ Vibhu Mithal \\ Ankit Modi \\ Rachel Williams}
-\newcommand{\PaperDate}{December 2025}
-\newcommand{\PaperGitURL}{https://github.com/YOUR-ORG/YOUR-REPO}
+% spacing for section titles if you want (optional)
+% \usepackage{titlesec} is already loaded in main, so avoid here unless needed
