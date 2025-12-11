@@ -58,50 +58,61 @@ The separate regressions by gender show broadly similar returns to education and
 
 Yet this baseline gap is muddied between differences in the composition of the characteristics of each group (e.g., average education levels) and differences in the returns to those characteristics (e.g., how much additional education translates to wage increases). In other words, while these regressions quantify the wage gap and its relationship to observable traits, part of the wage gap may be due to differences in the average education and experience levels (composition effects), while another being due to differences each group being paid differently for the same education or experience, or actual gender discrimination, which is the object of our study. 
 
-To disentangle these two effects, we apply the Oaxaca decomposition from \citet{oaxacaMaleFemaleWageDifferentials1973} using the gender-specific models from Columns (3) and (4) to formally separate the composition-driven (between) component from the differences in returns (within) component. To model this, let $y_{gi}$ denote log hourly wages in period $0$ for individual $i$ in group $g \in \{m,f\}$ (men, women), and let $X_{gi}$ be the corresponding row vector of observable characteristics (education dummies and a cubic polynomial in potential experience).\footnote{The intercept is kept separate and not included in $X_{gi}$.} The group–specific wage equations are
+To separate the portion of the wage gap arising from differences in average
+characteristics from the portion arising from differences in how those
+characteristics are rewarded in the labor market, we apply the Oaxaca
+decomposition of \citet{oaxacaMaleFemaleWageDifferentials1973} using the
+gender-specific regressions in Columns (3) and (4). Let $y_{gi}$ denote log
+hourly wages for individual $i$ in group $g \in \{m,f\}$ and let $X_{gi}$ be
+the vector of observable characteristics (education dummies and a cubic
+polynomial in potential experience).\footnote{The intercept is excluded from
+$X_{gi}$ and treated separately.} We model wages as
 \begin{equation}
-  y_{gi} = \alpha_g + X_{gi}'\beta_g + \varepsilon_{gi}, 
+  y_{gi} = \alpha_g + X_{gi}'\beta_g + \varepsilon_{gi},
   \qquad g \in \{m,f\}.
 \end{equation}
-Taking expectations and using sample means,
+Taking sample means yields
 \[
-  \bar y_g = \hat\alpha_g + \bar X_g' \hat\beta_g,
+  \bar y_g = \hat\alpha_g + \bar X_g' \hat\beta_g.
 \]
-where $\bar y_g$ and $\bar X_g$ are the sample means for group $g$ and
-$(\hat\alpha_g,\hat\beta_g)$ are the OLS estimates from the gender–specific
-regressions.
-
-We define the (raw) gender wage gap as the difference in mean log wages
-between men and women,
+The raw gender wage gap is defined as
 \[
   \Delta \equiv \bar y_m - \bar y_f.
 \]
-Using women as the reference group for the “non–discriminatory’’ wage
-structure, the Oaxaca (1973) decomposition writes this gap as
+
+Using women as the reference group, the Oaxaca decomposition expresses
+$\Delta$ as
 \begin{equation}
 \label{eq:oaxaca}
   \Delta 
   = (\bar X_m - \bar X_f)' \hat\beta_f 
     \;+\; \bar X_m'(\hat\beta_m - \hat\beta_f).
 \end{equation}
+
 The first term,
 \[
   (\bar X_m - \bar X_f)' \hat\beta_f,
 \]
-is the \emph{explained} or \emph{between–group} component: it captures how
-differences in average characteristics (education and experience) between men
-and women would translate into a wage gap if both groups were paid according
-to the same returns $\hat\beta_f$ estimated for women. The second term,
+is the \emph{explained} or \emph{between-group} component: it reflects how
+differences in average education and experience across men and women would
+translate into a wage gap if both groups received the same returns estimated
+for women.  
+
+The second term,
 \[
   \bar X_m'(\hat\beta_m - \hat\beta_f),
 \]
-is the \emph{unexplained} or \emph{within–group} component: it reflects
-differences in the returns to characteristics between men and women, evaluated
-at men’s average characteristics. In our implementation, the explained and
-unexplained components in equation~\eqref{eq:oaxaca} correspond exactly to the
-two pieces reported in the decomposition based on the separate male and female
-regressions used for Table~\ref{tab:table2}.
+is the \emph{unexplained} or \emph{within-group} component: it captures
+differences in the returns to these characteristics, evaluated at men’s mean
+characteristics.
 
+Applying equation~\eqref{eq:oaxaca} to our estimates, we obtain an explained
+component of approximately $-0.0623$, indicating that women's observable
+characteristics would predict \emph{higher} wages than men if both groups were
+rewarded according to the female returns. The unexplained component is about
+$0.1071$, showing that men receive higher returns to education and experience
+than women. This unexplained component dominates, yielding a total wage gap of
+roughly $0.0448$ log points, or about $4.5\%$, in favor of men.
 
 
 \subsection*{2.2 Gender Difference in Experience Profiles}
