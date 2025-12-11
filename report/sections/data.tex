@@ -1,6 +1,8 @@
 \section*{Data}
 
-In this section, we describe the dataset used in our analysis and provide descriptive statistics that summarize the main characteristics of workers in our sample. The data come from administrative records from Country~X, a labor market that closely resembles the United States \citep{wuFinalProjectAnalysis2025}. Each observation corresponds to a single individual who is observed for multiple consecutive years across two distinct jobs. All individuals in the dataset are observed for at least three years on their first job (periods $-3$, $-2$, $-1$) and three years on their second job (periods $0$, $1$, $2$).
+We use administrative data provided to us by Professor Alice Wu for the ECON 695 final project that follow men and women who are observed for several consecutive years across exactly two jobs. The dataset (projectdata.csv) contains one record per individual, with each record summarizing the worker’s demographic characteristics, education, potential labor market experience, and a sequence of annual wage observations surrounding a job transition. In total, the dataset includes 16{,}969 individuals—10{,}575 men and 6{,}394 women—who satisfy the sampling requirement of having at least three years of observations in their first job and three years in their second job. The timing convention indexes the first year on the second job as period~0, with years $-3$, $-2$, and $-1$ representing the three years prior to the move, and years $1$ and $2$ representing subsequent years on the second job. 
+
+A distinctive feature of the dataset is the inclusion of coworker wage measures: for each period, we observe the mean log wage of all other workers employed at the same firm. These coworker wage variables, recorded separately for the first job (averaged across periods $-1$ and $-2$) and the second job (averaged across periods 0, 1, and 2), enable us to investigate how the wage structure of a worker’s peer group may influence their own wage outcomes. This richness makes the dataset particularly suitable for studying gender differences in wage determination and the role of workplace environments.
 
 \subsection*{Sample Size and Structure}
 
@@ -10,70 +12,4 @@ The timing convention follows the project instructions: period $0$ is the first 
 
 \subsection*{Variables}
 
-The main variables used in our analysis are:
-
-\begin{itemize}
-    \item \textbf{Demographics:} age, years of education (educ), and potential experience (exp).
-    Education takes one of four values: 6, 9, 12, and 16 years.
-    \item \textbf{Gender:} a binary indicator variable \texttt{female} equal to 1 for women and 0 for men.
-    \item \textbf{Wages:} log hourly wages measured in different periods:
-    \begin{itemize}
-        \item $y$: wage in period 0 (first year on the second job),
-        \item $yp1$ and $yp2$: wages in periods 1 and 2,
-        \item $yl1$, $yl2$, $yl3$: wages in periods $-1$, $-2$, and $-3$ on the first job.
-    \end{itemize}
-    \item \textbf{Coworker Wages:} mean log wages of coworkers at:
-    \begin{itemize}
-        \item the first job ($owage1$), averaged over periods $-1$ and $-2$,
-        \item the second job ($owage2$), averaged over periods 0, 1, and 2.
-    \end{itemize}
-\end{itemize}
-
-\subsection*{Descriptive Statistics}
-
-Table~\ref{tab:summarystats} reports descriptive statistics for the main variables in the dataset.
-Women in the sample tend to have slightly lower wages, both on their first and second jobs, and
-the distribution of education levels differs meaningfully between men and women. Consistent
-with the project instructions, experience ranges between 5 and 30 years.
-
-% ------------------------------
-% Summary statistics table
-% ------------------------------
-
-\begin{table}[H]
-\centering
-\caption{Summary Statistics}
-\label{tab:summarystats}
-\begin{tabular}{lcccc}
-\toprule
-Variable & Mean & Std.~Dev. & Min & Max \\
-\midrule
-y (log wage, period 0) & 1.79 & 0.65 & 0.60 & 4.34 \\
-age                    & 33.56 & 5.69 & 22 & 52 \\
-educ (years)           & 10.48 & 3.59 & 6 & 16 \\
-female                 & 0.38 & 0.49 & 0 & 1 \\
-exp                    & 17.07 & 6.45 & 5 & 30 \\
-yl1                    & 1.74 & 0.61 & 0.60 & 4.24 \\
-owage2                 & (fill from code) & & & \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection*{Gender Differences in the Sample}
-
-Women represent 38\% of the sample and differ systematically from men in several observable
-characteristics. Women have slightly lower wages on average and are distributed differently
-across the four education categories. These patterns, visible in the value counts and summary
-statistics from our data, motivate our analysis of the gender wage gap in the sections that follow.
-
-In Figure~\ref{fig:wagedist}, we plot the distribution of log wages by gender. Consistent with our
-summary statistics, women have a lower wage distribution than men. This motivates the
-subsequent regression and decomposition analyses.
-
-% Figure placeholder
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{fig_distribution_wages}
-\caption{Distribution of Log Wages by Gender}
-\label{fig:wagedist}
-\end{figure}
+The dataset includes key demographic and human capital measures—age, years of education (taking values 6, 9, 12, or 16), gender (a binary indicator \texttt{female}), and potential experience constructed from age and schooling. Wage information is recorded as log hourly wages across multiple periods relative to a job transition: $y$ denotes the wage in period~0 (the first year on the second job), $yp1$ and $yp2$ correspond to years~1 and~2 on the second job, and $yl1$, $yl2$, and $yl3$ capture wages in the final three years on the first job (periods $-1$ through $-3$). For each period, we also observe the mean log wage of all other workers employed at the same firm. These coworker wage variables are summarized as $owage1$ (averaged over periods $-1$ and $-2$ for the first job) and $owage2$ (averaged over periods 0, 1, and 2 for the second job). Together, these variables allow us to link individual wage dynamics with characteristics of the worker’s surrounding wage environment.
