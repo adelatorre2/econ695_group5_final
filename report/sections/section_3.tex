@@ -1,2 +1,121 @@
 \section*{Section 3: Gender Wage Gaps Conditional on Coworker Wages}
 \addcontentsline{toc}{section}{Section 3: Gender Wage Gaps Conditional on Coworker Wages}
+\label{sec:Section 3: Gender Wage Gaps Conditional on Coworker Wages}
+
+So far, we've seen that differences in education and experience explain only part of the gender wage gap In particular, up until this point, we know that a substantial portion of the gender wage gap reflects differences in the \emph{returns} to education and experience rather than differences in characteristics themselves. However, wages aren't determined in isolation — they’re shaped by the environments people work in. In particular, does the wage level of the people you work with affect your own wage — and does this differ by gender?
+
+Specifically, we ask whether working alongside higher-paid coworkers boosts individual wages, and whether this effect differs by gender. The idea is simple: if men tend to work in higher-paying environments, and if those environments raise wages, then part of the gender gap may reflect where people work, not just who they are.
+
+To attempt to address this question, it become necessary to examine the average  wage of a worker’s coworker (owage2) by including it into our regression models to then be able to examine how it interacts with gender. This way, it becomes possible to test whether men and women benefit equally from high-wage peer groups — and whether differences in coworker exposure help explain the residual wage gap. In other words, we examine whether men and women sort into systematically different workplace environments and how much these  differences contribute to the wage gap.
+
+We extend our baseline wage models by incorporating coworker wages directly into the regression framework. By comparing pooled and gender-specific specifications, we evaluate both \emph{how strongly coworker  wages predict individual wages} and \emph{whether the returns to working with higher-paid coworkers differ by gender}. These estimates then feed into a new decomposition that asks: to what extent do gender differences in coworker wage exposure explain the remaining wage gap after controlling for education and experience?
+
+We begin by estimating a set of pooled and gender-specific regressions that progressively incorporate owage2 and its interaction with gender as shown below in Table~\ref{tab:table3}.
+
+
+\begin{table}[H]
+\centering
+\caption{Wage Models with Coworker Wages and Gender Interactions}
+\label{tab:table3}
+\begin{threeparttable}
+\scriptsize
+\renewcommand{\arraystretch}{0.75}
+\begin{tabular}{lccccc}
+\toprule
+ & (1) & (2) & (3) & (4) & (5) \\
+ & Pooled: female + owage2 & Pooled: full + owage2 & Pooled: + female$\times$owage2 & Men & Women \\
+\midrule
+Intercept      & 0.131 & -0.199 & -0.244 & -0.297 & -0.284 \\
+               & (0.013) & (0.047) & (0.047) & (0.064) & (0.066) \\
+female         & -0.121 & -0.189 & -0.071 &        &        \\
+               & (0.007) & (0.005) & (0.020) &        &        \\
+owage2         & 1.006 & 0.634 & 0.662 & 0.660 & 0.598 \\
+               & (0.007) & (0.007) & (0.008) & (0.009) & (0.010) \\
+C(educ)[T.9]   &        & 0.153 & 0.154 & 0.150 & 0.165 \\
+               &        & (0.008) & (0.008) & (0.010) & (0.013) \\
+C(educ)[T.12]  &        & 0.377 & 0.377 & 0.394 & 0.349 \\
+               &        & (0.008) & (0.008) & (0.011) & (0.013) \\
+C(educ)[T.16]  &        & 1.011 & 1.013 & 1.030 & 0.978 \\
+               &        & (0.010) & (0.010) & (0.013) & (0.016) \\
+exp            &        & 0.056 & 0.055 & 0.056 & 0.062 \\
+               &        & (0.009) & (0.009) & (0.012) & (0.013) \\
+exp2           &        & -0.001 & -0.001 & -0.001 & -0.002 \\
+               &        & (0.001) & (0.001) & (0.001) & (0.001) \\
+exp3           &        & -0.000 & -0.000 & -0.000 & 0.000 \\
+               &        & (0.000) & (0.000) & (0.000) & (0.000) \\
+female{:}owage2&        &        & -0.070 &        &        \\
+               &        &        & (0.011) &        &        \\
+\midrule
+R-squared      & 0.549 & 0.727 & 0.727 & 0.707 & 0.748 \\
+Adj.\ R$^{2}$  & 0.548 & 0.727 & 0.727 & 0.707 & 0.748 \\
+N              & 16{,}969 & 16{,}969 & 16{,}969 & 10{,}575 & 6{,}394 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item \textit{Notes}: Columns (1)--(3) report pooled OLS models of log wage $y$ that include coworker
+wages (owage2). Column (1) includes only a female dummy and coworker wage. Column (2) adds categorical
+education and a cubic polynomial in experience. Column (3) further interacts coworker wages with the
+female dummy. Columns (4)--(5) estimate the same specification as Column (2) separately for men and women.
+Standard errors are in parentheses. Oaxaca decompositions based on these gender-specific models are
+reported and discussed in the text rather than in the table.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+Table~\ref{tab:table3} shows that coworker wages are strongly correlated with individual wages. In all pooled specifications, the coefficient on \texttt{owage2} is large and precisely estimated, and the $R^{2}$ rises sharply relative to the models in Table~\ref{tab:table2}. The interaction specification in Column~(3) suggests that women benefit somewhat less from high-wage coworkers than men do: the estimated coefficient on \texttt{female}$\times$\texttt{owage2} is about $-0.07$, indicating a smaller marginal return to coworker wages for women. Columns (4) and (5) then estimate the full model separately by gender and confirm that both groups receive sizable returns to \texttt{owage2}, but the male coefficient is modestly larger.
+
+While these patterns show that coworker wages matter, they do not, by themselves, tell us how much of the gender wage gap is explained by men and women sorting into different coworker environments versus differences in how those environments are rewarded.To parallel the analysis in \nameref{subsec:2.1 Standard Models and Oaxaca Decomposition}, we therefore extend the Oaxaca decomposition to the richer specification that includes coworker wages.
+
+For each group $g\in\{m,f\}$, let $y_{gi}$ denote log hourly wages in period~0 and let $X_{gi}$ collect the observable characteristics. Relative to the earlier decomposition, $X_{gi}$ now includes education dummies, a cubic polynomial in potential experience, \emph{and} coworker wages \texttt{owage2} (the intercept is again treated separately). The group--specific wage equations estimated in Columns~(4) and (5) of Table~\ref{tab:table3} can be written as
+
+\[
+  y_{gi} = \alpha_g + X_{gi}'\beta_g + \varepsilon_{gi}, \qquad g\in\{m,f\},
+\]
+with corresponding sample means
+\[
+  \bar y_g = \hat\alpha_g + \bar X_g' \hat\beta_g.
+\]
+
+The raw gender wage gap is $\Delta \equiv \bar y_m - \bar y_f$, and, using women as the reference group, the Oaxaca decomposition becomes
+\begin{equation}
+\label{eq:oaxaca_owage}
+  \Delta
+  = (\bar X_m - \bar X_f)'\hat\beta_f
+    \;+\; \bar X_m'(\hat\beta_m - \hat\beta_f).
+\end{equation}
+As before, the first term
+$(\bar X_m - \bar X_f)'\hat\beta_f$ is the \emph{explained} or
+\emph{between--group} component, now capturing differences in average education,
+experience, and coworker wages evaluated at the female returns $\hat\beta_f$. The second term $\bar X_m'(\hat\beta_m - \hat\beta_f)$ is the \emph{unexplained} or \emph{within--group} component, reflecting differences in how these characteristics---including coworker wages---are rewarded for men and women.
+
+Applying equation~\eqref{eq:oaxaca_owage} to the gender--specific estimates in Columns~(4) and (5) of Table~\ref{tab:table3}, we obtain an explained component of about $0.0168$ log points and an unexplained component of about $0.2043$ log points, yielding a total gap of $\Delta \approx 0.2211$. In other words, once we account for education, experience, and coworker wages, differences in observable characteristics---including the fact that men tend to work with somewhat higher-paid coworkers---explain only a small fraction of the gender wage gap, while the bulk of the gap is still attributed to differences in returns. 
+
+\paragraph{Interpreting the Role of Coworker Wages}
+The introduction of coworker wages into the wage models opens a new window into how workplace environments shape wage inequality. What stands out immediately from Table~\ref{tab:table3} is the sheer magnitude of the \texttt{owage2} coefficient: workers who are surrounded by higher-paid peers earn markedly higher wages themselves. This relationship is not subtle—it is large, precisely estimated, and remarkably stable across pooled and gender-specific specifications. Yet the gender pattern layered on top is equally striking: in every relevant model, women receive \emph{smaller} marginal returns to high-wage coworker environments than men. Even after conditioning on education and experience, the wage benefits associated with working alongside highly paid coworkers appear systematically muted for women.
+
+This naturally raises a deeper question: \emph{why} does working with higher-paid coworkers raise wages, and why does this return differ by gender? The answer is not obvious, and in fact, the mechanism behind coworker spillovers is the source of genuine interpretive uncertainty. To discipline the narrative, it is helpful to think through the two economic hypotheses laid out in the assignment, each of which implies a different reading of what our decomposition captures.
+
+\paragraph{Model 1: Coworker wages reflect luck, networks, or access to better jobs.}
+Under this view, sorting into high-wage coworker environments is not mainly about productivity but about opportunity. Workers may reach these jobs through referrals, informal hiring networks, or sheer good fortune. If men have stronger networks, or search more aggressively, they may disproportionately end up in higher-wage peer groups. In this interpretation, the explained component of the decomposition—about $0.0168$ log points, or roughly $8\%$ of the total $0.2211$ gap—captures an inequality in job \emph{access}. Men are more likely to land in workplaces with higher-paid coworkers, and those environments boost wages, so men benefit twice: first from better job sorting, and second from stronger returns to those environments.
+
+Model~1 treats the large unexplained component ($\approx92\%$) cautiously. If job access is partly random or network-driven, then the structural gap in returns to coworker wages—men receiving larger wage boosts from similar environments—may signal discriminatory pay-setting or organizational norms that reward men more for the same workplace exposure.
+
+\paragraph{Model 2: Coworker wages proxy for unobserved productivity or ambition.}
+A very different interpretation emerges if coworker wages simply reflect who ends up working with whom. High-ability workers may seek out (or be recruited into) high-skill, high-paying teams. In this case, \texttt{owage2} acts as a measurable proxy for something we cannot otherwise observe: cognitive skills, ambition, or complementary abilities. If men and women differ in these unobserved traits—or if women face barriers that suppress the labor market rewards to those traits—the decomposition shifts meaningfully.
+
+Under Model~2, the explained portion of the gap still reflects differences in coworker wage exposure, but now this exposure is interpreted as an indirect measure of latent productivity. The fact that only $8\%$ of the gap is explained would then suggest that men and women with similar observed characteristics differ substantially in unobserved characteristics, or that employers reward unobserved male traits disproportionately. Meanwhile, the unexplained component captures both these latent differences and potential structural forces (bias, norms, bargaining disparities) that influence how unobserved skills are monetized.
+
+\paragraph{How the decomposition informs these competing interpretations.}
+The decomposition result reinforces that coworker wage exposure is relevant but cannot, on its own, account for the bulk of the gender wage gap. Even after controlling for education, experience, and coworkers' wages, sorting differences explain only a small slice of wage inequality. Most of the gap arises from differences in returns, not from systematic differences in observed characteristics or environments.
+
+The direction of the results also matters. The explained component is \emph{positive}: men sort into higher-wage coworker groups than women, and this sorting pushes their wages upward relative to women. But because the explained share is small, the narrative is dominated by the unexplained component. This feature is consistent with both models, but its implications differ:
+\begin{itemize}
+    \item Under Model~1, the large unexplained component suggests that unequal returns to workplace exposure—potentially driven by discrimination or gendered organizational dynamics—are a major driver of the gap.
+    \item Under Model~2, the unexplained component would reflect gender differences in unobserved productivity, or differences in how the labor market rewards those traits.
+\end{itemize}
+
+\paragraph{Where does this leave us?}
+Both mechanisms remain plausible, and the decomposition alone cannot adjudicate between them. However, two empirical facts stand out: (i) men benefit more from high-wage peers than women do, and (ii) men sort into those environments more frequently. Taken together, these patterns underscore that workplace environments are not gender-neutral, and that the processes determining sorting and wage-setting differ meaningfully by gender.
+
+It remains to be seen which of these stories best captures the role of coworker wages in practice. If coworker wage exposure truly reflects unobserved ability (Model~2), then we would expect workers with strong underlying skills or ambition to remain in, or quickly return to, high-wage peer groups even as their careers evolve. If instead coworker wages primarily reflect access, luck, or networks (Model~1), then movements across jobs could generate sharp changes in coworkers' wage profiles that are only loosely tied to individual productivity. Observing how workers move between different coworker environments over time thus becomes a natural way to probe whether coworker wages are acting as structural inputs to wage determination or simply as signals of deeper, unobserved differences across workers.
