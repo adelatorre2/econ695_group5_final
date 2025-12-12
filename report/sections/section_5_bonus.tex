@@ -2,7 +2,7 @@
 \addcontentsline{toc}{section}{Section 5 (Bonus): Shrinkage}
 \label{sec:Section 5 (Bonus): Shrinkage}
 
-
+To further examine how robust the relationship is between coworker wage changes and workers’ own wage adjustments, we estimate three shrinkage versions of the first–difference model: OLS, Ridge, and Lasso. All three estimators use the same design matrix, which includes the change in coworker wages $\Delta \text{ow}_i$, a cubic polynomial in experience, and education dummies. Ridge and Lasso apply penalties that shrink the coefficients toward zero, with Lasso additionally performing variable selection.
 
 \begin{table}[htbp]
     \centering
@@ -10,33 +10,38 @@
     \label{tab:table5}
     \small
     \begin{tabular}{lcccccccc}
-    \toprule
-        & Intercept & d_ow & exp & exp2 & exp3 & Ed_12 & Ed_16 & Ed_9 \\
+        \toprule
+        & Intercept & $\Delta$ow & exp & exp$^{2}$ & exp$^{3}$ & Ed9 & Ed12 & Ed16 \\
         \midrule
-        OLS & 0.099000 & 0.295000 & -0.011000 & 0.000000 & -0.000000 & 0.029000 & 0.079000 & 0.004000 \\
-        Ridge & 0.099000 & 0.293000 & -0.011000 & 0.000000 & -0.000000 & 0.028000 & 0.078000 & 0.004000 \\
-        Lasso & 0.106000 & 0.000000 & -0.000000 & -0.000000 & 0.000000 & 0.000000 & 0.000000 & -0.000000 \\
-    \bottomrule
-    \end{tabular}
-    \vspace{0.25em}
-    \begin{minipage}{0.95\textwidth}
+        OLS   & 0.099 & 0.295 & -0.011 & 0.000 & 0.000 & 0.004 & 0.029 & 0.079 \\
+        Ridge & 0.099 & 0.293 & -0.011 & 0.000 & 0.000 & 0.004 & 0.028 & 0.078 \\
+        Lasso & 0.106 & 0.000 & 0.000  & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        \bottomrule
+    \end{tabular}\\[0.4em]
+    \begin{minipage}{0.90\textwidth}
         \footnotesize
-        \textit{Notes:} Table reports coefficients from first--difference models of the change in log
-        wages $\Delta y_i = y_{i0} - y_{i,-1}$ on the change in coworkers' mean log wages
-        $\Delta\text{ow}_i = \text{owage2}_i - \text{owage1}_i$ and controls. Each row corresponds
-        to a different estimator using the same design matrix: OLS, Ridge regression with
-        5--fold cross--validation, and Lasso with 5--fold cross--validation. Regressors are
-        $\Delta\text{ow}_i$, a quadratic polynomial in experience at period $-1$ (exp, exp$^{2}$,
-        exp$^{3}$), and education dummies for 9, 12, and 16 years of schooling (Ed9, Ed12, Ed16),
-        with 6 years as the omitted category. Ridge shrinks coefficients moderately toward zero,
-        while Lasso sets most coefficients exactly to zero, highlighting which predictors the
-        penalized model retains. Standard errors are not reported for penalized estimators.
+        \textit{Notes:} Entries are coefficients from first--difference regressions of the change in log wages $\Delta y_i = y_{i0} - y_{i,-1}$ on the change in coworkers' mean log wages $\Delta\text{ow}_i = \text{owage2}_i - \text{owage1}_i$ and controls. All three estimators use the same design matrix: $\Delta\text{ow}_i$, a cubic polynomial in experience at period $-1$ (exp, exp$^{2}$, exp$^{3}$), and education dummies for 9, 12, and 16 years of schooling (Ed9, Ed12, Ed16), with 6 years as the omitted category. Ridge regression and Lasso are estimated with 5--fold cross--validation. Coefficients are rounded to three decimal places; very small values are reported as 0.000. Standard errors are not reported for the penalized estimators.
     \end{minipage}
 \end{table}
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/fig5_shrinkage_ridge_vs_ols.png}
+    \caption{Ridge shrinkage relative to OLS. Each point plots the OLS coefficient (x–axis) against the Ridge coefficient (y–axis). Ridge estimates lie very close to the 45° line, indicating minimal shrinkage.}
+    \label{fig:ridge_shrinkage}
+\end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.65\textwidth]{figures/fig5_shrinkage_ridge_vs_ols.png}
-    \caption{Ridge shrinkage toward OLS coefficients in the first–difference model.}
+    \includegraphics[width=0.75\textwidth]{figures/fig6_shrinkage_lasso_vs_ols.png}
+    \caption{Lasso shrinkage relative to OLS. Almost all coefficients collapse to zero under Lasso penalization, illustrating aggressive variable selection.}
+    \label{fig:lasso_shrinkage}
 \end{figure}
+
+The Ridge estimates in Table~\ref{tab:table5} lie extremely close to their OLS counterparts. For example, the OLS coefficient on $\Delta \text{ow}_i$ is $0.295$, and Ridge shrinks it only slightly to $0.293$. The experience-polynomial terms and education-dummy coefficients also move only marginally. This pattern indicates that multicollinearity among the regressors is limited: Ridge has little ``work’’ to do, and the first–difference estimates appear numerically stable. Economically, this suggests that the estimated causal response of wage changes to coworker wage changes is not being driven by unstable or highly collinear predictors.
+
+The Lasso estimator, by contrast, shrinks nearly all slope coefficients to exactly zero. The coefficient on $\Delta \text{ow}_i$ is driven fully to zero, as are the experience-polynomial terms and all education dummies. Only the intercept remains non-zero. This outcome reflects the Lasso’s variable-selection property: once complexity is penalized, the model concludes that none of the included regressors explain sufficient variation in $\Delta y_i$ to justify a nonzero coefficient. Statistically, this shows that the signal in the covariates is weak relative to the noise once differencing removes person-specific heterogeneity. Economically, this suggests that the predictive content of coworker wage changes for individual wage changes is fragile and sensitive to model penalization.
+
+Figure~\ref{fig:ridge_shrinkage} plots the OLS coefficients on the $x$-axis against the Ridge coefficients on the $y$-axis. The tight clustering of points around the ``$y=x$'' line confirms that Ridge estimates only minimally adjust the OLS results. In contrast, Figure~\ref{fig:lasso_shrinkage} plots OLS coefficients against Lasso coefficients. Here, almost all points collapse to zero on the $y$-axis, illustrating aggressive shrinkage toward sparsity. Notably, the Lasso sets the $\Delta \text{ow}_i$ coefficient to exactly zero, in stark contrast to both OLS and Ridge.
+
+ Together, the shrinkage results paint a nuanced picture. Ridge suggests that the OLS first--difference estimates---which already difference out time--invariant worker heterogeneity---are numerically very stable, so the modest positive association between coworker wage changes and own--wage changes does not appear to be an artifact of multicollinearity. At the same time, Lasso's aggressive shrinkage towards zero is a reminder that this effect is not very large: once we insist on a very sparse model, the change in coworker wages is no longer selected as an important predictor. Our shrinkage specification uses a flexible polynomial in experience but does not include interactions with experience or gender, so these results should be interpreted as average effects. Combined with the event--study and first--difference evidence in \nameref{sec:Section 4: Event Study - Wage Changes around Moves} (where we saw somewhat larger responses for movers with less experience and for men relative to women), we read the overall pattern as indicating that coworker wages matter for wage growth, but the magnitude of the effect is modest and any heterogeneity by experience or gender is limited and sensitive to how tightly the model is penalized. Overall, the bonus shrinkage exercise mainly reassures us that the baseline first--difference estimates are not driven by unstable regressors, while also highlighting the limits of what our data can say about strong, heterogeneous coworker--wage effects.
