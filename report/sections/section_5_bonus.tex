@@ -1,3 +1,42 @@
 \section*{Section 5 (Bonus): Shrinkage}
 \addcontentsline{toc}{section}{Section 5 (Bonus): Shrinkage}
 \label{sec:Section 5 (Bonus): Shrinkage}
+
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Shrinkage of First--Difference Coefficients: OLS, Ridge, and Lasso}
+    \label{tab:table5}
+    \small
+    \begin{tabular}{lcccccccc}
+    \toprule
+        & Intercept & d_ow & exp & exp2 & exp3 & Ed_12 & Ed_16 & Ed_9 \\
+        \midrule
+        OLS & 0.099000 & 0.295000 & -0.011000 & 0.000000 & -0.000000 & 0.029000 & 0.079000 & 0.004000 \\
+        Ridge & 0.099000 & 0.293000 & -0.011000 & 0.000000 & -0.000000 & 0.028000 & 0.078000 & 0.004000 \\
+        Lasso & 0.106000 & 0.000000 & -0.000000 & -0.000000 & 0.000000 & 0.000000 & 0.000000 & -0.000000 \\
+    \bottomrule
+    \end{tabular}
+    \vspace{0.25em}
+    \begin{minipage}{0.95\textwidth}
+        \footnotesize
+        \textit{Notes:} Table reports coefficients from first--difference models of the change in log
+        wages $\Delta y_i = y_{i0} - y_{i,-1}$ on the change in coworkers' mean log wages
+        $\Delta\text{ow}_i = \text{owage2}_i - \text{owage1}_i$ and controls. Each row corresponds
+        to a different estimator using the same design matrix: OLS, Ridge regression with
+        5--fold cross--validation, and Lasso with 5--fold cross--validation. Regressors are
+        $\Delta\text{ow}_i$, a quadratic polynomial in experience at period $-1$ (exp, exp$^{2}$,
+        exp$^{3}$), and education dummies for 9, 12, and 16 years of schooling (Ed9, Ed12, Ed16),
+        with 6 years as the omitted category. Ridge shrinks coefficients moderately toward zero,
+        while Lasso sets most coefficients exactly to zero, highlighting which predictors the
+        penalized model retains. Standard errors are not reported for penalized estimators.
+    \end{minipage}
+\end{table}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/fig5_shrinkage_ridge_vs_ols.png}
+    \caption{Ridge shrinkage toward OLS coefficients in the first–difference model.}
+\end{figure}
