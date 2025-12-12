@@ -1,2 +1,78 @@
 \section*{Section 4: Event Study - Wage Changes around Moves}
 \addcontentsline{toc}{section}{Section 4: Event Study - Wage Changes around Moves}
+\label{sec:Section 4: Event Study - Wage Changes around Moves}
+
+Although coworker wages are a powerful predictor of individual earnings, yet it remains unclear \emph{why} this relationship arises. Do higher–paid coworkers reflect deeper, unobserved traits of workers themselves, such as ability or ambition (Model~2)? Or do they reflect access, luck, or network-driven sorting into better-paying workplaces (Model~1)? If coworker wages primarily proxy for latent ability, we would expect workers to experience continuity in their coworker environments even as they switch jobs. If, instead, coworker wages are driven by access or networks, job transitions may produce sharp upward or downward shifts in coworker wage exposure. 
+
+This ambiguity motivates our next step. Job changers provide a natural lens through which to study how wages evolve when individuals move between workplaces with different pay environments. By comparing wage paths for workers who transition across coworker-wage terciles, we can observe whether changes in coworker environments are associated with systematic changes in workers' own wages, and whether these patterns align more closely with a sorting-based or ability-based explanation.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig3_event_study_ankit.png}
+\caption{Event study of mean log wages for job changers, plotted from three years before to two years after the move. Each panel corresponds to the worker's initial coworker-wage tercile (T1, T2, T3). Within each panel, lines indicate the tercile of the coworker-wage environment at the \emph{second} job. The vertical dashed line marks the job transition.}
+\label{fig:eventstudy}
+\end{figure}
+
+Figure~\ref{fig:eventstudy} offers a sharp window into how wages evolve when workers relocate between coworker-wage environments. Several patterns emerge clearly across all three origin-tercile panels. First, wage profiles rise monotonically with the coworker-wage tercile of the \emph{destination} job: workers who move into higher-wage coworker environments experience noticeably larger wage growth at the moment of the transition. Second, these gains tend to persist---workers who move from low- to high-tercile environments not only receive a discrete jump at the job change but also continue along a higher wage trajectory. Conversely, downward moves into lower-tercile environments are associated with flat or declining wage paths.
+
+These patterns present an informative tension for interpreting coworker-wage effects. Under an ability-based interpretation (Model~2), workers’ underlying skills should dominate the evolution of wages, and coworker-wage terciles should remain relatively stable across jobs. Yet Figure~\ref{fig:eventstudy} shows substantial mobility across coworker-wage environments, and these transitions coincide with discontinuous wage changes. Such movements are difficult to reconcile with a story in which coworker wages merely proxy for fixed ability. Instead, the patterns are more consistent with Model~1: if access, networks, or search behavior play a central role in matching workers to higher-paying environments, then transitions across terciles naturally generate the kinds of wage jumps we observe.
+
+At the same time, the trajectories offer a more nuanced view than a pure sorting narrative. The persistence of post-transition wage differences suggests that higher-paying coworker environments confer ongoing, not just one-time, advantages---consistent with genuine spillovers or learning effects from working alongside more productive peers. Yet the magnitude of baseline differences before the transition also indicates that workers who eventually move into high-paying coworker environments already earn more than those who remain in low-paying environments, reflecting some role for selection.
+
+Taken together, these facts imply that both models capture part of the story. Sorting and access influence who reaches high-wage coworker environments, while workplace spillovers likely shape wage growth once workers arrive. Crucially, these patterns confirm the decomposition results from Section~\ref{sec:owage_decomp}: coworker wages are not simply a noisy proxy for fixed worker ability. Job transitions—and the wage discontinuities that accompany them—signal that coworker environments themselves matter in shaping earnings trajectories. In the next section, we examine job changers more directly to further distinguish between these competing mechanisms.
+
+
+Having seen in Figure~\ref{fig:eventstudy} that wage jumps tend to accompany moves into higher coworker–wage environments, we next ask how much of this relationship survives once we difference out time–invariant worker attributes. To do so, we model the change in log wages from period $-1$ to period $0$,
+\[
+  \Delta y_i \equiv y_i - y_{i,-1},
+\]
+as a function of the corresponding change in coworkers' mean log wages,
+\[
+  \Delta \text{owage}_i \equiv \text{owage2}_i - \text{owage1}_i.
+\]
+Table~\ref{tab:table4} reports pooled first–difference regressions of $\Delta y_i$ on $\Delta \text{owage}_i$, first without additional controls and then adding education dummies, a quadratic in experience as of period $-1$, and a female indicator. Comparing these estimates to the level regressions in Table~\ref{tab:table3} allows us to gauge what fraction of the large coworker–wage coefficients reflects sorting or fixed individual traits, and what fraction remains even after we purge time–invariant heterogeneity.
+
+
+\begin{table}[H]
+\centering
+\caption{Wage Changes and Coworker Wage Growth}
+\label{tab:table4}
+
+\begin{threeparttable}
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.3}
+
+\begin{tabular}{lccccccccccc}
+\toprule
+ & Intercept & $\Delta$ow & Ed9 & Ed12 & Ed16 & exp & exp$^2$ & exp$^3$ & Female & R$^2$ & Adj.\ R$^2$ \\
+\midrule
+(1) $\Delta y$ 
+ & 0.038 & 0.293 & -- & -- & -- & -- & -- & -- & -- & 0.108 & 0.108 \\
+ & (0.002) & (0.006) &  &  &  &  &  &  &  &  &  \\
+\midrule
+(2) $\Delta y$ 
+ & 0.116 & 0.296 & 0.004 & 0.030 & 0.081 
+ & -0.013 & 0.001 & -0.000 & -0.025 & 0.130 & 0.129 \\
+ & (0.035) & (0.006) & (0.006) & (0.006) & (0.007) 
+ & (0.007) & (0.000) & (0.000) & (0.004) &  &  \\
+\bottomrule
+\end{tabular}
+
+\begin{tablenotes}[para,flushleft]
+\footnotesize
+\textit{Notes}: Each row reports a pooled OLS regression for the change in log wages 
+$\Delta y_i = y_{i0} - y_{i,-1}$ between period $-1$ and period $0$. 
+The regressor $\Delta$ow is the change in coworkers' mean log wage $(\text{owage2}_i - \text{owage1}_i)$. Ed9, Ed12, and Ed16 denote education dummies for 9, 12, and 16 years of schooling; the omitted category is 6 years. \textit{exp}, \textit{exp}$^2$, and \textit{exp}$^3$ are a cubic polynomial in experience at period $-1$. \textit{Female} is an indicator for women. Standard errors are in parentheses. R$^2$ is the coefficient of determination; Adj.\ R$^2$ is the adjusted R$^2$. Sample size is $N = 16{,}969$ in both specifications.
+\end{tablenotes}
+
+\end{threeparttable}
+\end{table}
+
+Table~\ref{tab:table4} shows that changes in individual wages are tightly linked to changes in coworkers' wages.  In the simple first–difference specification, a one–log–point increase in coworkers' mean log wage $\Delta\text{owage}_i$ is associated with roughly a $0.29$ log–point increase in a worker's own wage growth $\Delta y_i$.  Adding education dummies, a cubic in experience, and a female indicator leaves this coefficient essentially unchanged (0.296), suggesting that the contemporaneous coworker–wage effect is not driven by differences in observable skills or career stage.  The coefficient on \textit{Female} is about $-0.025$, indicating that, conditional on the same change in coworker wages and observables, women's wage growth between jobs is roughly 2.5 percentage points lower than men's over this one–year horizon.  At the same time, the $R^2$ values around 0.11–0.13 remind us that most of the variance in wage changes remains unexplained by these regressors; coworker wages matter, but they are far from the whole story.
+
+Comparing these estimates to the level regressions in Table~\ref{tab:table3} helps us separate sorting from potentially causal coworker effects.  In the pooled OLS models for wages in levels, the coefficient on coworker wages is around $0.63$, and the gender–specific models yield coefficients of roughly $0.66$ for men and $0.60$ for women.  By contrast, the first–difference coefficient of about $0.30$ in Table~\ref{tab:table4} is a little under one–half of the corresponding level coefficients.  A natural interpretation is that roughly 45–50\% of the strong association between coworker wages and individual wages in Table~\ref{tab:table3} reflects time–invariant traits—such as ability, ambition, or persistent match quality—that lead some workers to sort into higher–wage coworker environments.  The remaining half of the association survives once we difference out these fixed worker attributes and is therefore more consistent with a genuine wage response when workers move to jobs with better–paid coworkers.
+
+At the same time, we should be cautious not to overstate the causal content of the first–difference estimates.  The models in Table~\ref{tab:table4} are still pooled across men and women and do not allow the slope on $\Delta\text{owage}_i$ to differ by gender, so we cannot directly speak to whether wage growth is more responsive to coworker wage changes for men than for women.  Moreover, first–differencing removes only time–invariant unobservables; time–varying shocks to productivity, bargaining power, or local labor demand could still bias the estimated effects, and measurement error in wages or coworker wages will tend to attenuate coefficients toward zero.  Finally, our analysis focuses on a short window—from the last year on job 1 to the first year on job 2—so it may miss longer–run adjustments in wages that occur as workers settle into their new jobs.
+
+Taken together, the evidence from Tables~\ref{tab:table3} and \ref{tab:table4} suggests a mixed but informative picture.  Sorting on fixed traits clearly amplifies the raw relationship between coworker wages and individual wages, yet there remains a sizeable component—on the order of one–half of the original effect—that is consistent with workers' pay responding when they move into higher– or lower–wage coworker environments.  This raises a natural next question: how stable is this estimated coworker–wage effect once we allow for more flexible heterogeneity across experience groups and guard against overfitting in richer specifications? 
