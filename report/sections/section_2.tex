@@ -2,7 +2,7 @@
 \addcontentsline{toc}{section}{Section 2: Gender Wage Gaps}
 \label{sec:Section 2: Gender Wage Gaps}
 
-From our descriptive analysis, it is self evident that there exists substantial raw differences in wages, education, and coworker wage environments between men and women. These gaps raise a natural question: to what extent do observable characteristics—such as education and potential experience—account for the wage differences we see, and how much remains unexplained by these factors? Here we begin to attempt to formally investigate these questions by estimating standard wage models and applying the Oaxaca decomposition to separate the portion of the gender wage gap attributable to differences in characteristics from the portion attributable to differences in returns to those characteristics.
+From our descriptive analysis, it is evident that there exists substantial raw differences in wages, education, and coworker wage environments between men and women. These gaps raise a natural question: to what extent do observable characteristics, such as education and potential experience, account for the wage differences we see, and how much remains unexplained by these factors? We begin to attempt to investigate these questions by estimating standard wage models and applying the Oaxaca decomposition to separate the portion of the gender wage gap attributable to differences in characteristics from the portion attributable to differences in returns to those characteristics.
 
 \subsection*{2.1 Standard Models and Oaxaca Decomposition}
 \addcontentsline{toc}{subsection}{2.1 Standard Models and Oaxaca Decomposition}
@@ -51,26 +51,20 @@ N             & 16{,}969 & 16{,}969 & 10{,}575 & 6{,}394 \\
 \end{threeparttable}
 \end{table}
 
-Across the pooled models, the coefficient on the female indicator is negative and statistically significant, indicating that women earn lower wages on average even before conditioning on observable characteristics. In the baseline model that includes only a constant and the female dummy, the coefficient of approximately $-0.208$ suggests that women earn roughly 20\% lower wages than men at period~0. After adding categorical controls for education and a cubic polynomial in experience, the wage gap widens to about 27\%, reflecting that women in our sample tend to have slightly higher educational attainment and similar experience levels. Thus, once controlling for these favorable characteristics, the remaining wage gap attributable to gender becomes larger.
+In the pooled regression that includes a constant and only a female dummy, the coefficient on $female = -0.2084$ indicates that, holding no other variables constant, women earn about $20.8$\% lower wages than men on average. This is representative of the fundamental gender wage gap. On adding categorical education and a cubic polynomial in experience as controls to our pooled regression, the coefficient on $female = -0.2706$ which reveals that on controlling for education and experience, women earn approximately $27.06$\% less than men on average. Since the coefficient becomes increasingly negative on adding the respective controls, we interpret that women in our sample are on average more educated and experienced than men. Thus controlling for these variables widened the wage gap.
 
-The separate regressions by gender show broadly similar returns to education and experience for men and women. Returns to schooling rise with each additional educational category, while experience exhibits diminishing marginal returns. The largest difference lies in the intercepts: men have a higher baseline log wage than women, implying that even at comparable education and zero experience, men start from a higher predicted wage level. 
+In the separate by gender model, the coefficients on education split categorically and on experience are positive and significant for men and women alike. As education levels increase, returns to education on wages rise sharply, while the returns to experience on wages seem to show diminishing returns with increase in experience. On comparing the two groups, we conclude that men have much higher intercept values at $0.4906$ compared to $0.3270$ for women. This indicates that the predicted log wage for men with 6 years of education and no experience is $0.4906$ whereas it is $0.3270$ for women. While the returns to education are quite similar for both men and women, men have a marginally higher return to experience. This means that controlling for other variables, for a unit increase in years of experience, log wage rose by $0.0723$ for men and $0.0686$ for women. 
 
+While these regressions quantify the wage gap and its relationship to observable traits, part of the wage gap may be due to differences in the average education and experience levels (composition effects), while another being due to differences each group being paid differently for the same education or experience, or actual gender discrimination, which is the object of our study. 
 
-Yet this baseline gap is muddied between differences in the composition of the characteristics of each group (e.g., average education levels) and differences in the returns to those characteristics (e.g., how much additional education translates to wage increases). In other words, while these regressions quantify the wage gap and its relationship to observable traits, part of the wage gap may be due to differences in the average education and experience levels (composition effects), while another being due to differences each group being paid differently for the same education or experience, or actual gender discrimination, which is the object of our study. 
+To separate the portion of the wage gap arising from differences in average characteristics from the portion arising from differences in how those characteristics are rewarded in the labor market, we apply the Oaxaca decomposition of \citet{oaxacaMaleFemaleWageDifferentials1973} using the gender-specific regressions in Columns (3) and (4). Let $y_{gi}$ denote log hourly wages for individual $i$ in group $g \in \{m,f\}$ and let $X_{gi}$ be the vector of observable characteristics (education dummies and a cubic
+polynomial in potential experience).\footnote{The intercept is excluded from$X_{gi}$ and treated separately.} We model wages as
 
-To separate the portion of the wage gap arising from differences in average
-characteristics from the portion arising from differences in how those
-characteristics are rewarded in the labor market, we apply the Oaxaca
-decomposition of \citet{oaxacaMaleFemaleWageDifferentials1973} using the
-gender-specific regressions in Columns (3) and (4). Let $y_{gi}$ denote log
-hourly wages for individual $i$ in group $g \in \{m,f\}$ and let $X_{gi}$ be
-the vector of observable characteristics (education dummies and a cubic
-polynomial in potential experience).\footnote{The intercept is excluded from
-$X_{gi}$ and treated separately.} We model wages as
 \begin{equation}
   y_{gi} = \alpha_g + X_{gi}'\beta_g + \varepsilon_{gi},
   \qquad g \in \{m,f\}.
 \end{equation}
+
 Taking sample means yields
 \[
   \bar y_g = \hat\alpha_g + \bar X_g' \hat\beta_g.
@@ -106,19 +100,14 @@ is the \emph{unexplained} or \emph{within-group} component: it captures
 differences in the returns to these characteristics, evaluated at men’s mean
 characteristics.
 
-Applying equation~\eqref{eq:oaxaca} to our estimates, we obtain an explained
-component of approximately $-0.0623$, indicating that women's observable
-characteristics would predict \emph{higher} wages than men if both groups were
-rewarded according to the female returns. The unexplained component is about
-$0.1071$, showing that men receive higher returns to education and experience
-than women. This unexplained component dominates, yielding a total wage gap of
-roughly $0.0448$ log points, or about $4.5\%$, in favor of men.
+The Oaxaca Decomposition result shows the total wage gap is approximately $0.045$ log points, meaning men earn about $4.5$\% higher wages than women on average in period $0$. Based on the included education and experience characteristics, the \emph{explained component} $(\text{the between component}) = –0.0623$ indicates that women should earn higher wages than men. That is to say, if the labor market rewarded these characteristics equally for both genders, the wage gap would favor women. This is intuitive as women in the sample have slightly higher educational attainment and comparable experience as displayed above. However, given the unexplained component reflects differences in the returns to characteristics by definition, women are not favored in this case since the \emph{unexplained component} $(\text{the within component}) = 0.1071$ suggests that, even though women possess characteristics associated with higher wages, they do not receive the same returns as men. Ultimately, the Table~\ref{tab:table2} results show a positive wage gap favoring men.
+
 
 
 \subsection*{2.2 Gender Difference in Experience Profiles}
 \addcontentsline{toc}{subsection}{2.2 Gender Difference in Experience Profiles}\label{subsec:2.2 Gender Difference in Experience Profiles}
 
-Of course, the existence of a wage gap we identified in \nameref{subsec:2.1 Standard Models and Oaxaca Decomposition} is not monotone--behaviors, attitudes, lawsuits, macro-trends, and many other of the world's moving parts can influence changes in any such gap we have identified and maybe too effects people differently. As such, it become necessary to ask how it evolves over the life cycle. Here, we explore gender differences in the relationship between log wages and potential experience, focusing first on workers with 12 years of education and then extending the comparison across the full education distribution.
+The existence of a wage gap we identified in \nameref{subsec:2.1 Standard Models and Oaxaca Decomposition} is not monotone as behaviors, attitudes, lawsuits, macro-trends, and many other of the world's moving parts can influence changes in any such gap we have identified and maybe too effects people differently. As such, it is necessary to ask how it evolves over the life cycle. Here, we explore gender differences in the relationship between log wages and potential experience, focusing first on workers with 12 years of education and then extending the comparison across the full education distribution.
 
 \begin{figure}[H]
     \centering
@@ -127,7 +116,7 @@ Of course, the existence of a wage gap we identified in \nameref{subsec:2.1 Stan
     \label{fig:exp_profile_edu12}
 \end{figure}
 
-Figure~\ref{fig:exp_profile_edu12} shows that among workers with 12 years of education, men's predicted wages start above women's even at low experience levels, and the gap widens as experience accumulates. The male profile rises more steeply early in the career and peaks at a higher level of log wages, while the female profile is flatter and turns over earlier. For both genders, returns to experience are largest in the early years and then level off, consistent with the diminishing marginal effects of experience estimated in Table~\ref{tab:table2}. Taken together, these patterns are consistent with the Oaxaca result that differences in returns, rather than differences in observed characteristics, play an important role in sustaining the wage gap.
+In the primary Figure~\ref{fig:exp_profile_edu12} plot $(\text{education} = 12$), male wages start above female wages even at low experience levels, and the gap widens as experience increases. The male curve shows a sharper upward slope and peaks at a higher level than the female profile. In contrast, the female curve is flatter which suggests that women receive smaller marginal returns to experience. Both curves show wages grow quickly early in a career and then level off. Notably, concurrent to Figure~\ref{fig:wage_dists}, this effect is stronger for men as the women’s profile peaks earlier and at a substantially lower predicted wage. Together, these patterns visually reinforce the Oaxaca decomposition result that women have similar and even more favorable education levels than men, but the returns to those characteristics differ considerably.
 
 \begin{center}
 
@@ -171,4 +160,4 @@ Figure~\ref{fig:exp_profile_edu12} shows that among workers with 12 years of edu
 \end{center}
 
 \noindent
-Across all four education groups, the pattern is remarkably stable. At 6, 9, 12, and 16 years of schooling, men's predicted wages exceed women's at nearly every point in the experience distribution. Male profiles tend to be steeper early in the career and peak at higher wage levels. Higher education shifts both curves upward, but the gender gap persists—and often widens—with experience within each education category. Taken together, these panels visually reinforce the results from Table~\ref{tab:table2} and the Oaxaca decomposition: women begin their careers at a lower baseline and also appear to receive systematically weaker returns to experience, even when education is held fixed.
+The bonus plots for education levels 6, 9, 12, and 16 reveal that the pattern holds across the entire education distribution. At all education levels, male predicted wages exceed female predicted wages for the same experience. Moreover, male returns to experience are consistently larger as the slope of the male curve is steeper in the early career years and male profiles peak at higher levels of log wages which strengthens the results from Figure~\ref{fig:wage_dists}and Table~\ref{tab:table2}. Thus, even at higher education levels (e.g., 16 years), although both men and women earn more overall, the gender gap persists and grows with experience. In other words, these panels visually reinforce that women begin their careers at a lower baseline and appear to receive systematically weaker returns to experience, even when education is held fixed. 

@@ -1,0 +1,18 @@
+\section*{Data}
+\addcontentsline{toc}{section}{Data}
+
+We use administrative data provided to us by Professor Alice Wu for the ECON 695 final project that follow men and women who are observed for several consecutive years across exactly two jobs. The dataset (projectdata.csv) contains one record per individual, with each record summarizing the worker’s demographic characteristics, education, potential labor market experience, and a sequence of annual wage observations surrounding a job transition. In total, the dataset includes 16{,}969 individuals—10{,}575 men and 6{,}394 women—who satisfy the sampling requirement of having at least three years of observations in their first job and three years in their second job. The timing convention indexes the first year on the second job as period~0, with years $-3$, $-2$, and $-1$ representing the three years prior to the move, and years $1$ and $2$ representing subsequent years on the second job. 
+
+A distinctive feature of the dataset is the inclusion of coworker wage measures: for each job spell, we observe a summary measure of the mean log wage of all other workers employed at the same firm. These coworker wage variables are recorded separately for the first job, where $owage1$ is defined as the average coworker wage across periods $-1$ and $-2$, and for the second job, where $owage2$ is defined as the average coworker wage across periods 0, 1, and 2. This structure enables us to investigate how the wage distribution among a worker’s peers may influence their own wage outcomes. This richness makes the dataset particularly suitable for studying gender differences in wage determination and the role of workplace environments.
+
+\subsection*{Sample Size and Structure}
+\addcontentsline{toc}{subsection}{Sample Size and Structure}
+
+The dataset contains a total of 16{,}969 individuals, of whom 10{,}575 are men and 6{,}394 are women. Thus, approximately 38\% of the sample consists of women. The sample is further restricted to workers who move between jobs where there are at least four coworkers at each job, so that coworker wage measures are well defined. Each individual record includes demographic characteristics, education, experience, and a sequence of wage observations around a job transition.
+
+The timing convention follows the project instructions: period $0$ is the first year on the second job, periods $1$ and $2$ are the subsequent years, and periods $-1$ through $-3$ correspond to the final three years on the first job. For each job spell, the dataset also includes a measure of the mean log wage of coworkers, which is central to our later analysis of coworker wage effects.
+
+\subsection*{Variables}
+\addcontentsline{toc}{subsection}{Variables}
+
+The dataset includes key demographic and human capital measures—age, years of education (taking values 6, 9, 12, or 16), gender (a binary indicator \texttt{female}), and potential experience constructed from age and schooling. Wage information is recorded as log hourly wages across multiple periods relative to a job transition: $y$ denotes the wage in period~0 (the first year on the second job), $yp1$ and $yp2$ correspond to years~1 and~2 on the second job, and $yl1$, $yl2$, and $yl3$ capture wages in the final three years on the first job (periods $-1$ through $-3$). These coworker wage variables are summarized as $owage1$ (averaged over periods $-1$ and $-2$ for the first job) and $owage2$ (averaged over periods 0, 1, and 2 for the second job). Together, these variables allow us to link individual wage dynamics with characteristics of the worker’s surrounding wage environment.

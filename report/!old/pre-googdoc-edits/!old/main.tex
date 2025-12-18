@@ -1,0 +1,119 @@
+\documentclass[12pt,twoside]{report}
+
+% =========================
+% Packages
+% =========================
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{threeparttable} % for tables with notes
+\usepackage{nameref} % for referencing section names
+\usepackage{subcaption, caption, float}  % for subfigures [H] placement
+\usepackage{natbib}         % author–date citations
+
+% Options add "Appendix" heading to ToC and a separate "Appendices" page
+\usepackage[toc,page]{appendix} 
+
+% Custom style package
+\usepackage{econ695_style}  % to use the .sty file in the project root
+
+\raggedbottom % prevent uneven vertical spacing
+
+% graphics path
+\graphicspath{{figures/}}
+
+% line spacing
+\onehalfspacing
+
+% hyperref setup (tweak colors if you want)
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+% =========================
+% Title info
+% =========================
+\title{ECON 695 Final Project: Gender Wage Gaps and Coworker Wages}
+\author{
+Alejandro De La Torre \\
+Vibhu Mithal \\
+Ankit Modi \\
+Rachel Williams
+}
+\date{December 2025}
+
+% =========================
+% Document
+% =========================
+\begin{document}
+
+% ---------- Title page ----------
+\begin{titlepage}
+  \thispagestyle{empty}
+  \begin{center}
+    {\Large ECON 695 Final Project}\\[0.5em]
+    {\large University of Wisconsin--Madison}\\[2em]
+
+    {\LARGE \textbf{Gender Wage Gaps and Coworker Wages}}\\[2em]
+
+    {\large Alejandro De La Torre \\ Vibhu Mithal \\ Ankit Modi \\ Rachel Williams}\\[1.5em]
+
+    {\large December 2025}\\[2em]
+
+    \href{https://github.com/adelatorre2/econ695_group5_final}{Latest version and replication files}
+  \end{center}
+
+  \vfill
+
+  \noindent\textbf{Acknowledgements.} 
+  We thank Professor Alice Wu for guidance and comments. 
+  All errors are our own.
+
+\end{titlepage}
+
+% ---------- Abstract ----------
+% \input{sections/abstract}  % inside abstract.tex you’ll put the abstract env
+% TODO: add abstract in the end if time allows
+
+
+% ---------- AI disclaimer (unnumbered, but in ToC) ----------
+\clearpage
+\section*{AI Disclaimer}
+\addcontentsline{toc}{section}{AI Disclaimer}
+AI tools (specifically ChatGPT) were used solely to assist with minor troubleshooting and formatting tasks, including resolving typesetting and Python issues, and drafting descriptive tables for improved readability. All analysis, model specifications, interpretations, and the final written narrative
+are our own.
+
+% ---------- Table of contents ----------
+\clearpage
+\tableofcontents
+\clearpage
+
+% ---------- Main text ----------
+\input{sections/intro}          
+\input{sections/data}           
+\input{sections/section_1}      
+\input{sections/section_2}      
+\input{sections/section_3}      
+\input{sections/section_4}      
+\input{sections/section_5_bonus}
+\input{sections/conclusion}
+
+% ---------- Appendix ----------
+\input{sections/appendix}       % e.g., robustness, extra tables
+
+% ---------- References ----------
+\clearpage
+\renewcommand{\bibname}{References}
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{chicago}
+\bibliography{references/econ695_final_project}
+
+
+\end{document}
